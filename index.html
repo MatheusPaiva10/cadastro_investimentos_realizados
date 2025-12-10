@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Carteira de Investimentos</title>
+    <!-- Importa o CSS principal -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER DO SISTEMA: contém o nome e informações do usuário -->
+    <header class="main-header">
+        <div class="container header-content">
+
+            <!-- Logo / Nome do Sistema -->
+            <div class="logo">
+                <span class="logo-icon">📈</span>
+                <span>InvestCorp System</span>
+            </div>
+
+            <!-- Área com boas-vindas e botão de logout -->
+            <div class="user-area">
+                <span class="welcome-text">Olá, <strong id="user-display-name">Gestor</strong></span>
+                <button id="btn-logout" class="btn-logout">Sair</button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL DA PÁGINA -->
+    <main class="container dashboard">
+
+        <!-- Título + Botão de Novo Aporte -->
+        <div class="dashboard-controls">
+
+            <div>
+                <h1>Meus Investimentos</h1>
+                <p class="subtitle">Gestão de ativos e rentabilidade</p>
+            </div>
+
+            <!-- Botão que abre o modal de novo investimento -->
+            <button id="btn-open-modal" class="btn btn-primary btn-add">
+                + Novo Aporte
+            </button>
+
+        </div>
+
+        <!-- Grid onde os cards de investimentos são renderizados dinamicamente -->
+        <div id="investments-grid" class="cards-container"></div>
+
+    </main>
+
+    <!-- MODAL DE CADASTRO / EDIÇÃO DE INVESTIMENTO -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+
+        <div class="modal">
+
+            <!-- Cabeçalho do modal -->
+            <div class="modal-header">
+                <h3 id="modal-title">Registrar Investimento</h3>
+
+                <!-- Botão que fecha o modal -->
+                <button id="btn-close-modal" class="close-modal">&times;</button>
+            </div>
+            
+            <!-- Formulário de criação/edição de investimentos -->
+            <form id="investment-form">
+
+                <!-- Campo invisível que guarda o ID quando editando -->
+                <input type="hidden" id="inv-id">
+
+                <!-- Nome do Ativo -->
+                <div class="form-group">
+                    <label>Nome do Ativo</label>
+                    <input type="text" id="inv-name" placeholder="Ex: Petrobras PN" required>
+                </div>
+
+                <!-- Categoria do ativo -->
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select id="inv-type" required>
+                        <option value="">Selecione...</option>
+                        <option value="Ações">Ações (B3)</option>
+                        <option value="FIIs">Fundos Imobiliários</option>
+                        <option value="Renda Fixa">Renda Fixa / Tesouro</option>
+                        <option value="Cripto">Criptomoedas</option>
+                        <option value="Exterior">Stocks (Exterior)</option>
+                    </select>
+                </div>
+
+                <!-- Valor aplicado + Data da aplicação -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Valor Aplicado (R$)</label>
+                        <input type="number" id="inv-amount" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data Aplicação</label>
+                        <input type="date" id="inv-date" required>
+                    </div>
+
+                </div>
+
+                <!-- Retorno esperado + Data alvo -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Retorno Esperado (%)</label>
+                        <input type="number" id="inv-return" step="0.01" placeholder="%" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Vencimento / Meta</label>
+                        <input type="date" id="inv-expected-date" required>
+                    </div>
+
+                </div>
+
+                <!-- Campo de observações -->
+                <div class="form-group">
+                    <label>Observações</label>
+                    <textarea id="inv-notes" rows="2"></textarea>
+                </div>
+
+                <!-- Botões de ação do modal -->
+                <div class="modal-footer">
+                    <button type="button" id="btn-cancel" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Salvar Investimento</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Importa o JavaScript que faz tudo funcionar -->
+    <script src="script.js"></script>
+</body>
+</html>

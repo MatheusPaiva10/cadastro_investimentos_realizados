@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Define idioma da página -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Suporte a acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - InvestCorp</title>
+
+    <!-- Linka o arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="auth-body"> <!-- Classe usada para estilização do fundo -->
+
+    <div class="auth-container"> <!-- Container principal que segura os dois formulários -->
+
+        <!-- ========================= LOGIN ============================= -->
+        <div id="login-box" class="auth-box">
+            
+            <div class="auth-header"> <!-- Cabeçalho do formulário -->
+                <h2>Bem-vindo</h2>
+                <p>Acesse sua carteira de investimentos</p>
+            </div>
+
+            <!-- FORMULÁRIO DE LOGIN -->
+            <form id="login-form">
+
+                <!-- Campo de e-mail -->
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="seu@email.com" required>
+                </div>
+
+                <!-- Campo de senha -->
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" placeholder="Sua senha" required>
+                </div>
+
+                <!-- BOTÃO DE ENTRAR -->
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+
+            <!-- Link para trocar para tela de cadastro -->
+            <div class="auth-footer">
+                <p>Não tem conta? <a href="#" id="link-to-register">Cadastre-se aqui</a></p>
+            </div>
+
+        </div>
+        <!-- ========================= FIM LOGIN ============================= -->
+
+
+        <!-- ========================= REGISTRO ============================= -->
+        <!-- Começa escondido pelo CSS (.hidden) -->
+        <div id="register-box" class="auth-box hidden">
+
+            <div class="auth-header">
+                <h2>Criar Conta</h2>
+                <p>Novo registro de gestor</p>
+            </div>
+
+            <!-- FORMULÁRIO DE CADASTRO -->
+            <form id="register-form">
+
+                <!-- Nome completo -->
+                <div class="form-group">
+                    <label for="reg-name">Nome Completo</label>
+                    <input type="text" id="reg-name" placeholder="Seu Nome" required>
+                </div>
+
+                <!-- E-mail -->
+                <div class="form-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" placeholder="seu@email.com" required>
+                </div>
+
+                <!-- Senha -->
+                <div class="form-group">
+                    <label for="reg-pass">Senha</label>
+                    <input type="password" id="reg-pass" required minlength="6">
+                </div>
+
+                <!-- Confirmação de senha -->
+                <div class="form-group">
+                    <label for="reg-pass-confirm">Confirmar Senha</label>
+                    <input type="password" id="reg-pass-confirm" required minlength="6">
+                </div>
+
+                <!-- Botão de criar conta -->
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+            </form>
+
+            <!-- Link para voltar ao login -->
+            <div class="auth-footer">
+                <p>Já tem conta? <a href="#" id="link-to-login">Fazer Login</a></p>
+            </div>
+
+        </div>
+        <!-- ========================= FIM REGISTRO ============================= -->
+
+    </div>
+
+    <!-- Importa o JS que alterna entre login e cadastro -->
+    <script src="script.js"></script>
+</body>
+</html>
